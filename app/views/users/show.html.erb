@@ -1,0 +1,8 @@
+<h1>Profile</h1>
+
+<ul>
+  <li>Email: <%= @user.email %></li>
+  <li>TimeZone: <%= @user.time_zone %></li>
+  <li>Birthday: <%= @user.profile.birthday %></li>
+  <li>Bio: <%= simple_format(@user.profile.bio)%></li>
+</ul>

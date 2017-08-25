@@ -1,0 +1,17 @@
+<div class="col-md-10 col-md-offset-1">
+  <h2>Edit User Profile</h2>
+  <%= simple_form_for [:admin, @user,@profile] do |f| %>
+
+  <div class="form-group">
+    <%= f.input :legal_name %>
+    <%= f.input :birthday %>
+    <%= f.input :location %>
+    <%= f.input :education %>
+    <%= f.input :occupation %>
+    <%= f.input :bio %>
+    <%= f.input :sepciality %>
+    <%= f.submit "Update", class: "btn btn-primary"%>
+  </div>
+
+  <% end %>
+</div>

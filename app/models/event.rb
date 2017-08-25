@@ -7,6 +7,10 @@ class Event < ApplicationRecord
 
  before_validation :generate_friendly_id, :on => :create
 
+ STATUS = ["draft", "public", "private"]
+
+ validates_inclusion_of :status, :in => STATUS
+
  def to_param
   #  "#{self.id}-#{self.name}"
   self.friendly_id

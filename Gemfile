@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'will_paginate'
+gem 'simple_form'
+gem 'select2-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

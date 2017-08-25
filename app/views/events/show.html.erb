@@ -1,4 +1,8 @@
 <h1><%= @event.name %></h1>
 
-<h2><%= t(@event.status, :scope => "event.status")%></h2>
-<%= simple_format @event.description %>
+<hr>
+<ul style="font-size: 18px;">
+  <li>Status: <%= t(@event.status, :scope => "event.status")%></li>
+  <li>description: <%= simple_format @event.description %></li>
+  <li>Category: <%= @event.category.try(:name) %></li>
+</ul>

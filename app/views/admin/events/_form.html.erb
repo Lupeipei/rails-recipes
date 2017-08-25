@@ -39,3 +39,11 @@
 
   <!-- <%= f.select :status, Event::STATUS.map{|s| [t(s, :scope => "event.status"), s]}, {},:class => "form-control"%> -->
 </div>
+
+<div class="form-group">
+  <%= f.association :category %>
+</div>
+
+<script>
+  $("#event_category_id").select2({theme: "bootstrap"});
+</script>

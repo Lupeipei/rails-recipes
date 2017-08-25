@@ -11,6 +11,8 @@ class Event < ApplicationRecord
 
  validates_inclusion_of :status, :in => STATUS
 
+ belongs_to :category, :optional => true
+
  def to_param
   #  "#{self.id}-#{self.name}"
   self.friendly_id

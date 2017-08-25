@@ -1,0 +1,31 @@
+<h1><%= @event.name%> / Tickets</h1>
+
+<br>
+
+<div class="pull-right">
+  <%= link_to("New Ticket", new_admin_event_ticket_path, class: "btn btn-primary")%>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tickets.each do |ticket| %>
+    <tr>
+      <td><%= ticket.name %></td>
+      <td><%= ticket.price %></td>
+      <td><%= ticket.description %></td>
+      <td>
+        <%= link_to("Edit", edit_admin_event_ticket_path(ticket.event, ticket), class: "btn btn-default")%>
+        <%= link_to("Delete", admin_event_ticket_path(ticket.event, ticket), class: "btn btn-danger")%>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>

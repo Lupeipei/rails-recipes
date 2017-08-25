@@ -37,6 +37,7 @@ gem 'devise-i18n'
 gem 'will_paginate'
 gem 'simple_form'
 gem 'select2-rails'
+gem 'nested_form_fields'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

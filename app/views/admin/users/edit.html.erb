@@ -1,0 +1,14 @@
+<h1>Edit User</h1>
+
+<%= simple_form_for [:admin, @user] do |f| %>
+    <%= f.input :email%>
+    <!-- <%= f.association :groups, :as => :check_boxes %> -->
+    <%= f.select :group_ids, Group.all.map{ |g| [g.name, g.id] }, {}, :multiple => true, :class => "form-control"%>
+    <%= f.submit "Update", class: "btn btn-primary"%>
+    <%= link_to("Cancel", admin_users_path, class: "btn btn-default")%>
+  <% end %>
+
+
+<script>
+  $("#user_group_ids").select2()
+</script>

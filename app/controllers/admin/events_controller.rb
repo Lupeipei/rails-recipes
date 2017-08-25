@@ -1,11 +1,13 @@
 class Admin::EventsController < AdminController
 
+  before_action :find_the_event, only: [:show, :edit, :update, :destroy]
+
   def index
     @events = Event.all
   end
 
   def show
-    @event = Event.find(params[:id])
+    
   end
 
   def new
@@ -23,11 +25,11 @@ class Admin::EventsController < AdminController
   end
 
   def edit
-    @event = Event.find(params[:id])
+
   end
 
   def update
-    @event = Event.find(params[:id])
+
 
     if @event.update(event_params)
       redirect_to admin_events_path
@@ -37,13 +39,18 @@ class Admin::EventsController < AdminController
   end
 
   def destroy
-    @event = Event.find(params[:id])
+
     @event.destroy
 
     redirect_to admin_events_path
   end
 
   protected
+
+  def find_the_event
+    @event = Event.find_by_friendly_id!(params[:id])
+  end
+
 
   def event_params
     params.require(:event).permit(:name, :description)

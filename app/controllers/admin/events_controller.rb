@@ -7,7 +7,7 @@ class Admin::EventsController < AdminController
   end
 
   def show
-    
+
   end
 
   def new
@@ -53,7 +53,7 @@ class Admin::EventsController < AdminController
 
 
   def event_params
-    params.require(:event).permit(:name, :description)
+    params.require(:event).permit(:name, :description, :friendly_id)
   end
 
 end

@@ -3,7 +3,7 @@ class Admin::EventsController < AdminController
   before_action :find_the_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
+    @events = Event.all.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show

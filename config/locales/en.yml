@@ -29,3 +29,5 @@ en:
       draft: draft
       public: public
       private: private
+  bulk_delete: bulk delete
+  bulk_update: bulk update

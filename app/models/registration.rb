@@ -10,6 +10,10 @@ class Registration < ApplicationRecord
 
   before_validation :generate_uuid, :on => :create
 
+  attr_accessor :current_step
+  validates_presence_of :name, :email, :cellphone, :if => :should_validate_basic_data?
+  validates_presence_of :name, :email, :cellphone, :bio, :if => :should_validate_all_data?
+
   def to_param
     self.uuid
   end
@@ -18,5 +22,13 @@ class Registration < ApplicationRecord
 
   def generate_uuid
     self.uuid = SecureRandom.uuid
+  end
+
+  def should_validate_basic_data?
+    current_step == 2
+  end
+
+  def should_validate_all_data?
+    current_step == 3 || status == "confirmed"
   end
 end

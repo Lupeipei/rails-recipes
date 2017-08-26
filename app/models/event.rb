@@ -17,6 +17,8 @@ class Event < ApplicationRecord
 
  belongs_to :category, :optional => true
 
+ has_many :registrations, :dependent => :destroy
+
  include RankedModel
  ranks :row_order
 

@@ -10,6 +10,9 @@ class Registration < ApplicationRecord
 
   before_validation :generate_uuid, :on => :create
 
+  scope :by_status, -> (s){ where(:status => s)}
+  scope :by_ticket, -> (t){ where(:ticket_id => t)}
+
   attr_accessor :current_step
   validates_presence_of :name, :email, :cellphone, :if => :should_validate_basic_data?
   validates_presence_of :name, :email, :cellphone, :bio, :if => :should_validate_all_data?

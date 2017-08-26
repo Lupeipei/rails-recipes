@@ -3,7 +3,7 @@ class Admin::EventsController < AdminController
   before_action :find_the_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all.paginate(:page => params[:page], :per_page => 10)
+    @events = Event.rank(:row_order).all.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
@@ -64,6 +64,13 @@ class Admin::EventsController < AdminController
 
     flash[:alert] = "成功完成#{total}笔"
     redirect_to admin_events_path
+  end
+
+  def reorder
+    @event = Event.find_by_friendly_id!(params[:id])
+    @event.row_order_position = params[:position]
+    @event.save
+    redirect_to :back
   end
 
   protected

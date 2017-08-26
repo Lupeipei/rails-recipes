@@ -38,6 +38,7 @@ gem 'will_paginate'
 gem 'simple_form'
 gem 'select2-rails'
 gem 'nested_form_fields'
+gem 'bootstrap-datepicker-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

@@ -1,8 +1,12 @@
-<h1>Profile</h1>
+<div class="pull-right">
+  <%= link_to("Edit Profile", edit_user_path(@user), class: "btn btn-primary")%>
+</div>
 
-<ul>
-  <li>Email: <%= @user.email %></li>
-  <li>TimeZone: <%= @user.time_zone %></li>
-  <li>Birthday: <%= @user.profile.birthday %></li>
-  <li>Bio: <%= simple_format(@user.profile.bio)%></li>
-</ul>
+  <h1>Profile</h1>
+
+  <ul>
+    <li>Email: <%= @user.email %></li>
+    <li>TimeZone: <%= @user.time_zone %></li>
+    <li>Birthday: <%= @user.profile.birthday %></li>
+    <li>Bio: <%= simple_format(@user.profile.bio)%></li>
+  </ul>

@@ -1,0 +1,11 @@
+<h1><%= @event.name %></h1>
+
+<%= simple_form_for [@event, Registration.new] do |f| %>
+  <%= f.association :ticket %>
+  <%= f.input :name %>
+  <%= f.input :email, placeholder: 'user@domain.com'%>
+  <%= f.input :cellphone%>
+  <%= f.input :website%>
+  <%= f.input :bio%>
+  <%= f.submit "Submit", class: "btn btn-success"%>
+<% end %>

@@ -2,7 +2,9 @@
 
 <hr>
 <ul style="font-size: 18px;">
-  <li>Status: <%= t(@event.status, :scope => "event.status")%></li>
-  <li>description: <%= sanitize @event.description %></li>
-  <li>Category: <%= @event.category.try(:name) %></li>
+  <li><strong>Status: </strong><%= t(@event.status, :scope => "event.status")%></li>
+  <li><strong>Description: </strong><%= sanitize @event.description %></li>
+  <li><strong>Category: </strong><%= @event.category.try(:name) %></li>
 </ul>
+
+<p><%= link_to "开始报名", new_event_registration_path(@event), class: "btn btn-primary"%></p>

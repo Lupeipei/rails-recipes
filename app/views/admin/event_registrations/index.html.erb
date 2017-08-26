@@ -1,0 +1,36 @@
+<h1><%= @event.name %> / Registrations </h1>
+
+<p class="text-right">
+  <%= link_to "New Registration", new_admin_event_registration_path(@event), :class => "btn btn-primary"%>
+</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Ticket</th>
+      <th>Name</th>
+      <th>Status</th>
+      <th>E-mail</th>
+      <th>Created At</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @registrations.each do |registration| %>
+    <tr>
+      <td><%= registration.id%></td>
+      <td><%= registration.ticket.name %></td>
+      <td><%= registration.name%></td>
+      <td><%= t(registration.status, :scope => "registration.status" )%></td>
+      <td><%= registration.email%></td>
+      <td><%= registration.created_at%></td>
+      <td>
+        <%= link_to "Edit", edit_admin_event_registration_path(registration.event, registration), :class => "btn btn-default"%>
+        <%= link_to "Delete", admin_event_registration_path(registration.event, registration), :class => "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"}%>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>

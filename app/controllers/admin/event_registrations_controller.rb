@@ -3,7 +3,7 @@ class Admin::EventRegistrationsController < AdminController
   before_action :find_event
 
   def index
-    @registrations = @event.registrations.includes(:ticket).order("id DESC")
+    @registrations = @event.registrations.includes(:ticket).order("id DESC").page(params[:page]).per(10)
   end
 
   def new

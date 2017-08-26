@@ -34,7 +34,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'rails-i18n'
 gem 'devise-i18n'
-gem 'will_paginate'
+# gem 'will_paginate'
 gem 'simple_form'
 gem 'select2-rails'
 gem 'nested_form_fields'
@@ -43,6 +43,7 @@ gem 'ckeditor'
 gem 'ranked-model'
 gem 'jquery-ui-rails'
 gem 'rails-erd', require: false, group: :development
+gem 'kaminari'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

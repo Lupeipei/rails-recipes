@@ -1,0 +1,40 @@
+<h2>修改记录</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Model</th>
+      <th>Model ID</th>
+      <th>Event</th>
+      <th></th>
+      <th>Operator</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @versions.each do |version| %>
+    <tr>
+      <td><%= version.id %></td>
+      <td><%= version.item_type %></td>
+      <td><%= version.item_id %></td>
+      <td><%= version.event %></td>
+      <td>
+        <ul>
+          <% version.changeset.each do |key, value| %>
+          <li>从<%= value[0]%>改成<%= value[1]%></li>
+          <% end %>
+        </ul>
+      </td>
+      <td><%= version.whodunnit && User.find(version.whodunnit).display_name %></td>
+      <td>
+        <% if version.event != 'create' %>
+        <%= link_to "Undo", admin_version_undo_path(version), :data => {:confirm => "Are you sure?"}, :method => :post, class: "btn btn-danger"%>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @versions %>

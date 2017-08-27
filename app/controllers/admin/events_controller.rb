@@ -114,11 +114,11 @@ class Admin::EventsController < AdminController
       if params[:commit] == I18n.t(:bulk_update)
         event.status = params[:event_status]
         if event.save
-          total = 1
+          total += 1
         end
       elsif params[:commit] == I18n.t(:bulk_delete)
         event.destroy
-        total = 1
+        total += 1
       end
     end
 

@@ -9,14 +9,14 @@ class AdminController < ApplicationController
   protected
 
   def require_admin!
-    if current_user.role != "admin"
+    unless current_user.is_admin?
       flash[:alert] = "You have no permission"
       redirect_to root_path
     end
   end
 
   def require_editor!
-    if current_user.role != "editor" && current_user.role != "admin"
+    unless current_user.is_editor?
       flash[:alert] = "You have no permission"
       redirect_to root_path
     end

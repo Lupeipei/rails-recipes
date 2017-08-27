@@ -2,6 +2,10 @@
 
 <%= simple_form_for [:admin, @user] do |f| %>
     <%= f.input :email%>
+    <div class="form-group">
+      <%= f.label :role %>
+      <%= f.select :role, User::ROLES.map{ |x| [t(x, :scope => "user.role"),x]}, {:include_blank => true}, :class => "form-control"%>
+    </div>
     <!-- <%= f.association :groups, :as => :check_boxes %> -->
     <%= f.select :group_ids, Group.all.map{ |g| [g.name, g.id] }, {}, :multiple => true, :class => "form-control"%>
     <%= f.submit "Update", class: "btn btn-primary"%>

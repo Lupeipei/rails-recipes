@@ -26,6 +26,46 @@ class Admin::EventsController < AdminController
         }]
     }
 
+    @data2 = {
+      labels: ticket_names,
+      datasets: [{
+        label: "# of Amount ",
+        data: @event.tickets.map {|t| t.registrations.by_status("confirmed").count * t.price},
+        backgroundColor: colors,
+        borderWidth: 1
+        }]
+    }
+
+    status_colors = {"confirmed" => "#FF6384", "pending" => "#36A2EB"}
+
+    @data3 = {
+      labels: ticket_names,
+      datasets: Registration::STATUS.map do |s|
+        {
+          label: I18n.t(s, :scope => "registration.status"),
+          data: @event.tickets.map {|t| t.registrations.by_status(s).count},
+          backgroundColor: status_colors[s],
+          borderWidth: 1
+        }
+      end
+    }
+
+
+    if @event.registrations.any?
+      dates = (@event.registrations.order("id ASC").first.created_at.to_date..Date.today).to_a
+      @data4 = {
+        labels: dates,
+        datasets: Registration::STATUS.map do |s|
+          {
+            label: I18n.t(s, :scope => "registration.status"),
+            data: dates.map{ |d|
+              @event.registrations.by_status(s).where("created_at >= ? AND created_at <= ?", d.beginning_of_day, d.end_of_day).count},
+            backgroundColor: status_colors[s],
+            borderWidth: 1
+          }
+        end
+      }
+    end
   end
 
   def new

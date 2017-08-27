@@ -40,6 +40,8 @@
   <!-- <%= f.select :status, Event::STATUS.map{|s| [t(s, :scope => "event.status"), s]}, {},:class => "form-control"%> -->
 </div>
 
+<!-- upload logo -->
+
 <div class="form-group">
   <%= f.label :logo %>
   <%= f.file_field :logo, :class => "form-control"%>
@@ -48,6 +50,21 @@
       <%= f.check_box :remove_logo %> 删除图档
     </label>
     <%= link_to f.object.logo.filename, f.object.logo.url, :target => "_blank"%>
+  <% end %>
+</div>
+
+<!-- upload images -->
+
+<div class="form-group">
+  <%= f.label :Images %>
+  <%= f.file_field :images, :multiple => true, :class => "form-control"%>
+  <% if f.object.images.present? %>
+    <label>
+      <%= f.check_box :remove_images %> 删除图档
+    </label>
+    <% f.object.images.each do |i| %>
+      <%= link_to i.filename, i.url, :target => "_blank"%>
+    <% end %>
   <% end %>
 </div>
 

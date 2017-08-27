@@ -1,5 +1,6 @@
 <h1><%= @event.name %></h1>
 
+<!-- logo -->
 <div class="pull-right" style="margin-bottom: 20px; margin-top: 20px;">
   <% if @event.logo.present? %>
     <%= link_to image_tag(@event.logo.url(:thumb)), @event.logo.url, :target => "_blank"%>
@@ -13,10 +14,17 @@
   <li><strong>Category: </strong><%= @event.category.try(:name) %></li>
 </ul>
 
+<!-- images -->
 <% if @event.images.present? %>
   <% @event.images.each do |i| %>
     <%= link_to image_tag(i.url(:small)), i.url %>
   <% end %>
 <% end %>
+
+<ul style="margin-top: 50px; font-size: 20px;">
+  <% @event.attachments.each do |a|%>
+    <li><%= link_to a.description, a.attachment.url%></li>
+  <% end %>
+</ul>
 
 <p><%= link_to "开始报名", new_event_registration_path(@event), class: "btn btn-primary"%></p>

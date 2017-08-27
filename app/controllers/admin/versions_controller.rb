@@ -1,4 +1,5 @@
 class Admin::VersionsController < AdminController
+  before_action :require_admin!
   def index
     @versions = PaperTrail::Version.order("id DESC").page(params[:page])
   end
@@ -8,5 +9,5 @@ class Admin::VersionsController < AdminController
     @version.reify.save!
     redirect_to admin_versions_path
   end
-  
+
 end

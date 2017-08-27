@@ -44,6 +44,7 @@ gem 'ranked-model'
 gem 'jquery-ui-rails'
 gem 'rails-erd', require: false, group: :development
 gem 'kaminari'
+gem 'ransack'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

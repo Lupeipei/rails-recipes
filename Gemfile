@@ -47,6 +47,7 @@ gem 'kaminari'
 gem 'ransack'
 gem 'mini_magick'
 gem 'carrierwave'
+gem 'paper_trail'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

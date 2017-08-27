@@ -37,6 +37,9 @@ class Admin::EventRegistrationsController < AdminController
 
     respond_to do |format|
       format.html
+      format.xlsx {
+        response.headers['Content-Disposition'] = "attachment; filename*=UTF-8''#{URI.encode("#{@event.friendly_id}-registrations-#{Time.now.to_s(:number)}.xlsx")}"
+      }
       format.csv {
         @registrations = @registrations.reorder("id ASC")
         csv_string = CSV.generate do |csv|

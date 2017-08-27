@@ -48,6 +48,9 @@ gem 'ransack'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'paper_trail'
+gem 'rubyzip'
+gem 'axlsx'
+gem 'axlsx_rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

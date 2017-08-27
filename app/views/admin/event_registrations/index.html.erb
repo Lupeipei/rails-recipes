@@ -34,6 +34,10 @@
     <% end %>
   </p>
 
+  <p>
+    报名日期：<%= date_field_tag :start_on, params[:start_on]%> ~ <%= date_field_tag :end_on, params[:end_on]%>
+  </p>
+
   <p class="text-right">
     <%= submit_tag "送出筛选", :class => "btn btn-primary"%>
   </p>

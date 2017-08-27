@@ -1,10 +1,19 @@
 <h1><%= @event.name %></h1>
 
+<div class="pull-right" style="margin-bottom: 20px; margin-top: 20px;">
+  <% if @event.logo.present? %>
+    <%= link_to image_tag(@event.logo.url(:thumb)), @event.logo.url, :target => "_blank"%>
+  <% end %>
+</div>
+
 <hr>
 <ul style="font-size: 18px;">
   <li><strong>Status: </strong><%= t(@event.status, :scope => "event.status")%></li>
   <li><strong>Description: </strong><%= sanitize @event.description %></li>
   <li><strong>Category: </strong><%= @event.category.try(:name) %></li>
 </ul>
+
+
+
 
 <p><%= link_to "开始报名", new_event_registration_path(@event), class: "btn btn-primary"%></p>

@@ -3,7 +3,7 @@ class Admin::EventsController < AdminController
   before_action :find_the_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.rank(:row_order).all.paginate(:page => params[:page], :per_page => 10)
+    @events = Event.rank(:row_order).all
   end
 
   def show
@@ -84,7 +84,7 @@ class Admin::EventsController < AdminController
 
 
   def event_params
-    params.require(:event).permit(:name, :description, :friendly_id, :status, :category_id, :tickets_attributes => [:id, :name, :description, :price,:_destroy])
+    params.require(:event).permit(:name, :description, :friendly_id, :status,:logo, :remove_logo, :category_id, :tickets_attributes => [:id, :name, :description, :price,:_destroy])
   end
 
 end

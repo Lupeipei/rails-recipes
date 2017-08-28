@@ -52,6 +52,7 @@ gem 'rubyzip'
 gem 'axlsx'
 gem 'axlsx_rails'
 gem 'letter_opener'
+gem 'premailer-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

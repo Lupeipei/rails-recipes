@@ -32,6 +32,8 @@ class Event < ApplicationRecord
  include RankedModel
  ranks :row_order
 
+ has_many :registration_imports, :dependent => :destroy
+
  def to_param
   #  "#{self.id}-#{self.name}"
   self.friendly_id

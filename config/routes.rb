@@ -25,7 +25,11 @@ Rails.application.routes.draw do
       post :undo
     end
     resources :events do
-      resources :registrations, :controller => "event_registrations"
+      resources :registrations, :controller => "event_registrations" do
+        collection do
+          post :import
+        end
+      end
       resources :tickets, :controller => "event_tickets"
       member do
         post :reorder

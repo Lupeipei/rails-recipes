@@ -54,6 +54,7 @@ gem 'axlsx_rails'
 gem 'letter_opener'
 gem 'premailer-rails'
 gem 'sidekiq'
+gem 'mysql2'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -63,6 +64,8 @@ gem 'sidekiq'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
   gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
